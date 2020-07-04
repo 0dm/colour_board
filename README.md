@@ -12,4 +12,4 @@ colour_board_debug is an alternative version that will save the image in clipboa
 - `pip install pillow`
 - `pip install pynput`
 
-![demo](https://imgur.com/XksvPs7.gif)
+![demo](https://imgur.com/qifl8ov.gif)
