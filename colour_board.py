@@ -4,12 +4,16 @@ from PIL import Image, ImageGrab
 import random
 import os
 
+# Format RGB to Hex
 def rgb2hex(r,g,b):
     return '#{:02x}{:02x}{:02x}'.format(r,g,b).upper()
 
+
+# Grabs image from clipboard and outputs colour from pixels.
 def clip2png():
-    
     i = ImageGrab.grabclipboard()
+
+    # if there's no image on clipboard, return
     try:
         width, height = i.size 
     except AttributeError:
@@ -20,18 +24,15 @@ def clip2png():
     print(rgb2hex(r,g,b))
 
 
-                      
+# On Key Pressed Event                      
 def on_press(key):
     if key == kb.Key.f2:
         clip2png()
-        
-def on_release(key):
-    if key == kb.Key.f12: # exit
+    elif key == kb.Key.f12: # exit
         exit()
 
 with kb.Listener(
-        on_press=on_press,
-        on_release=on_release) as listener:
+        on_press=on_press) as listener:
     listener.join()
 
 

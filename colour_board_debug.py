@@ -25,23 +25,16 @@ def clip2png():
     rgb_op = i.convert('RGBA')
     r,g,b,a = rgb_op.getpixel(((width/2),(height/2))) # Get middle
     print(rgb2hex(r,g,b,a))
-    #wdir = os.listdir(dir)
-    #for images in wdir:
-        #if images.endswith('.png'):
-            #os.remove(os.path.join(dir,images))
 
                       
 def on_press(key):
     if key == kb.Key.f2:
         clip2png()
-        
-def on_release(key):
     if key == kb.Key.f12: # exit
-        exit()
+        exit()   
 
 with kb.Listener(
-        on_press=on_press,
-        on_release=on_release) as listener:
+        on_press=on_press) as listener:
     listener.join()
 
 
