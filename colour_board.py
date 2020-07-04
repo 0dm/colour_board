@@ -8,27 +8,17 @@ def rgb2hex(r,g,b):
     return '#{:02x}{:02x}{:02x}'.format(r,g,b).upper()
 
 def clip2png():
-    ic = ImageGrab.grabclipboard()
-    suffix = ''.join(random.choice(s.digits) for _ in range(3))
-    name = 'CB_' + suffix + '.png'
-    dir = os.path.join(os.getcwd(), 'temp')
-    path = os.path.join(dir, name)
     
+    i = ImageGrab.grabclipboard()
     try:
-        ic.save(path,'png')
+        width, height = i.size 
     except AttributeError:
         print("The clipboard does not contain an image.")
         return
-        
-    i = Image.open(path)    
-    width, height = i.size 
     rgb_op = i.convert('RGB')
     r,g,b = rgb_op.getpixel(((width/2),(height/2))) # Get middle
     print(rgb2hex(r,g,b))
-    #wdir = os.listdir(dir)
-    #for images in wdir:
-        #if images.endswith('.png'):
-            #os.remove(os.path.join(dir,images))
+
 
                       
 def on_press(key):
