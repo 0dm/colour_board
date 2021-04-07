@@ -9,7 +9,7 @@ def rgb2hex(r,g,b):
     return '#{:02x}{:02x}{:02x}'.format(r,g,b).upper()
 
 
-# Grabs image from clipboard and outputs colour from pixels.
+# Grabs image from clipboard and outputs color from pixels.
 def clip2png():
     i = ImageGrab.grabclipboard()
 
